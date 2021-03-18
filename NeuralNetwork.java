@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NeuralNetwork {
-	private static double LEARNINGRATE = 0.001f;
+	private static double LEARNINGRATE = 0.01f;
 	private int n;
 	private ArrayList<double[][]> weights;
 	private ArrayList<double[][]> biases;
