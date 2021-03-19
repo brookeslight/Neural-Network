@@ -97,7 +97,7 @@ public class NeuralNetwork {
 		if((l + 1) < (this.n - 1)) {
 			double sum = 0.0;
 			for(int k = 0; k < this.weights.get(l + 1).length; k++) {
-				sum += this.gradientOfWeight(l + 1, k, i, t)*this.weights.get(l + 1)[k][i];
+				sum += this.gradientOfWeight(l + 1, k, i, t) * this.weights.get(l + 1)[k][i];
 			}
 			return (z * sum);
 		} else if((l + 1) == (this.n - 1)) {
