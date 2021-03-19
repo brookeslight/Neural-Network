@@ -87,7 +87,7 @@ public class NeuralNetwork {
 			}
 			return (z * sum);
 		} else if((l + 1) == (this.n - 1)) {
-			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z;
+			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z * this.activations.get(l + 1)[i][0];
 		}
 		throw new IllegalArgumentException("Weight Gradient Calculation Error!");
 	}
@@ -101,7 +101,7 @@ public class NeuralNetwork {
 			}
 			return (z * sum);
 		} else if((l + 1) == (this.n - 1)) {
-			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z;
+			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z * this.activations.get(l + 1)[i][0];
 		}
 		throw new IllegalArgumentException("Bias Gradient Calculation Error!");
 	}
