@@ -79,13 +79,13 @@ public class NeuralNetwork {
 	}
 	
 	private double gradientOfWeight(int l, int i, int j, double[][] t) { //when referring to A, use l+1 because A[0] is input vector, n-1 because n starts at 1
-		double z = (this.activations.get(l + 1)[i][0] * (1.0 - this.activations.get(l + 1)[i][0]) * this.activations.get(l)[j][0]);
+		double z = this.activations.get(l)[j][0] * (1.0 - this.activations.get(l + 1)[i][0]);
 		if((l + 1) < (this.n - 1)) {
 			double sum = 0.0;
 			for(int k = 0; k < this.weights.get(l + 1).length; k++) {
-				sum += this.gradientOfWeight(l + 1, k, i, t)*this.weights.get(l + 1)[k][i];
+				sum += this.gradientOfWeight(l + 1, k, i, t) * this.weights.get(l + 1)[k][i];
 			}
-			return ((z * sum) / this.activations.get(l + 1)[i][0]);
+			return (z * sum);
 		} else if((l + 1) == (this.n - 1)) {
 			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z;
 		}
@@ -93,13 +93,13 @@ public class NeuralNetwork {
 	}
 	
 	private double gradientOfBias(int l, int i, int j, double[][] t) { //when referring to A, use l+1 because A[0] is input vector, n-1 because n starts at 1
-		double z = (this.activations.get(l + 1)[i][0] * (1.0 - this.activations.get(l + 1)[i][0]));
+		double z = (1.0 - this.activations.get(l + 1)[i][0]);
 		if((l + 1) < (this.n - 1)) {
 			double sum = 0.0;
 			for(int k = 0; k < this.weights.get(l + 1).length; k++) {
 				sum += this.gradientOfWeight(l + 1, k, i, t)*this.weights.get(l + 1)[k][i];
 			}
-			return ((z * sum) / this.activations.get(l + 1)[i][0]);
+			return (z * sum);
 		} else if((l + 1) == (this.n - 1)) {
 			return 2.0 * (this.activations.get(l + 1)[i][0] - t[i][0]) * z;
 		}
