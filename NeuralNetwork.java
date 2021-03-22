@@ -53,6 +53,12 @@ public class NeuralNetwork {
 	public void train(double[][] input, double[][] target) {
 		//calculate activations
 		this.predict(input);
+		//calculate cost
+//		double cost = 0.0;
+//		for(int i = 0; i < this.activations.get(n-1).length; i++) {
+//			cost += (this.activations.get(n-1)[i][0] - target[i][0])*(this.activations.get(n-1)[i][0] - target[i][0]);
+//		}
+//		System.out.println(cost);
 		//calculate weight gradients
 		for(int l = 0; l < this.weightGradients.size(); l++) {
 			for(int i = 0; i < this.weightGradients.get(l).length; i++) {
