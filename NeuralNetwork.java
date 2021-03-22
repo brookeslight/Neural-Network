@@ -118,7 +118,7 @@ public class NeuralNetwork {
 		double[][] vector = new double[row][col];
 		for(int i = 0; i < row; i++) {
 			for(int j = 0; j < col; j++) {
-				vector[i][j] = this.normalDistribution(-4 + 8*Math.random());
+				vector[i][j] = this.normalDistribution(-5 + 10*Math.random());
 			}
 		}
 		return vector;
